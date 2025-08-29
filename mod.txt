@@ -1,0 +1,17 @@
+{
+	"name": "Go Infamous automatically on full Infamy Pool",
+	"description": "Go Infamous automatically on full Infamy Pool.",
+	"author": "James",
+	"version": "0",
+	"updates" : [
+		{
+			"identifier" : "auto-go-infamous",
+			"host": {
+				"meta": "https://raw.githubusercontent.com/Jamemes/Go-Infamous-automatically-on-full-Infamy-Pool/meta/meta.json"
+			}
+		}
+	],
+	"hooks": [
+		{"hook_id": "lib/managers/experiencemanager", "script_path": "experiencemanager.lua"},
+	]
+}
