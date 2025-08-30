@@ -33,8 +33,10 @@ local function increase_infamous_with_prestige_overflow()
 	end
 end
 
-Hooks:PostHook(ExperienceManager, "set_current_prestige_xp", "ExperienceManager.set_current_prestige_xp.add_infamy_on_pool_overflow", function(self)
+Hooks:PostHook(ExperienceManager, "set_current_prestige_xp", "ExperienceManager.set_current_prestige_xp.add_infamy_on_pool_overflow", function(self, amount)
 	if self:get_prestige_xp_percentage_progress() >= 1 then
+		local remains = amount - self:get_max_prestige_xp() 
 		increase_infamous_with_prestige_overflow()
+		self._global.prestige_xp_gained = Application:digest_value(remains, true)
 	end
 end)

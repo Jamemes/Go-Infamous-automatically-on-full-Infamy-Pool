@@ -2,7 +2,7 @@
 	"name": "Go Infamous automatically on full Infamy Pool",
 	"description": "Go Infamous automatically on full Infamy Pool.",
 	"author": "James",
-	"version": "0",
+	"version": "1",
 	"updates" : [
 		{
 			"identifier" : "auto-go-infamous",
