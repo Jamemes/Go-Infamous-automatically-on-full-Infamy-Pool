@@ -39,7 +39,15 @@ Hooks:PostHook(ExperienceManager, "set_current_prestige_xp", "ExperienceManager.
 	if self:get_prestige_xp_percentage_progress() >= 1 then
 		local remains = amount - self:get_max_prestige_xp()
 		if increase_infamous_with_prestige_overflow() then
-			self._global.prestige_xp_gained = Application:digest_value(remains, true)
+			local function go_infamous_multiple_time_no_freeze(o)
+				for i = 0, 10 do
+					coroutine.yield()
+				end
+
+				self:set_current_prestige_xp(remains)
+			end
+
+			managers.menu:active_menu().renderer.ws:panel():animate(go_infamous_multiple_time_no_freeze)
 		end
 	end
 end)
